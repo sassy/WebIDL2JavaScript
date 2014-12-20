@@ -1,0 +1,15 @@
+{
+  "name": "idl2js",
+  "version": "1.0.0",
+  "description": "generate JavaScript file from WebIDL.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Satoshi Watanabe",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "webidl2": "^2.0.7"
+  }
+}

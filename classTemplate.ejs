@@ -1,0 +1,5 @@
+
+functoin <%= name %>() {
+    <% attributes.forEach(function(attr, i) { %>this.<%= attr %> = arguments[<%= i %>];
+    <% }) %>
+}

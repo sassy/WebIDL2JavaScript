@@ -1,0 +1,8 @@
+interface Hello {
+  attribute long value;
+};
+
+interface Hello2 {
+  attribute float x;
+  attribute float y;
+};

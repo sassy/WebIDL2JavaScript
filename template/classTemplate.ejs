@@ -2,3 +2,8 @@ function <%= name %>() {
     <% attributes.forEach(function(attr, i) { %>this.<%= attr %> = arguments[<%= i %>];
     <% }) %>
 }
+<% operations.forEach(function(op, i) { %>
+<%= name%>.prototype.<%= op.name %> = function(<% op.args.forEach(function(name, j){ %><%= name%><% if (j !== op.args.length -1) { %>, <% } %><% })%>){
+    //TODO impl
+};
+<% }) %>

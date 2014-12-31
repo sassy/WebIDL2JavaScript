@@ -5,4 +5,7 @@ interface Hello {
 interface Hello2 {
   attribute float x;
   attribute float y;
+  void foo();
+  void setX(float x);
+  void setXY(float x, float y);
 };

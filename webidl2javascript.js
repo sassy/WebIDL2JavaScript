@@ -10,13 +10,26 @@ exports.generateClass = function(name, members) {
     
     var template = fs.readFileSync('template/classTemplate.ejs', 'utf-8');
     var attributes = [];
+    var operations = [];
     members.forEach(function(member) {
-        if (member.type === 'attribute') {
+        switch (member.type) {
+        case 'attribute':
             attributes.push(member.name);
+            break;
+        case 'operation':
+            operation = new Object();
+            operation.name = member.name;
+            operation.args = [];
+            member.arguments.forEach(function(arg, i) {
+                operation.args[i] = arg.name;
+            });
+            operations.push(operation);
+            break;
         }
     });
     var output = ejs.render(template, {name: name, 
-                                       attributes: attributes
+                                       attributes: attributes,
+                                       operations: operations
                                       });
     return output;
 };

@@ -61,7 +61,8 @@ exports.convertWebIDL = function(idl) {
             break;
         }
     });
-    console.log(output);
+    //console.log(output);
+    
     return output;
 };
 
@@ -69,3 +70,8 @@ exports.convertWebIDLFile = function(filename) {
     var idl = fs.readFileSync(filename, 'utf-8');
     return this.convertWebIDL(idl);
 };
+
+exports.writeJSFile = function(filename, output) {
+    fs.writeFileSync(filename + ".js", output);
+};
+

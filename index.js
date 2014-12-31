@@ -15,6 +15,7 @@ if (!process.argv[2].match(/\.idl$/)) {
 
 var idl_file = process.argv[2];
 var converter = require("./webidl2javascript");
-converter.convertWebIDLFile(idl_file);
+var output = converter.convertWebIDLFile(idl_file);
+converter.writeJSFile(idl_file, output);
 
 

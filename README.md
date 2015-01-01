@@ -11,5 +11,15 @@ Generate JavaScript Library files from WebIDL files.
 $ npm install
 $ node index.js test.idl
 ````
+# Supported named definitions
+* interface
+
+# Unsupported named difinitions
+* partial interface
+* dictionary
+* partial dictionary
+* enum
+* callback
+* typedef
 
 

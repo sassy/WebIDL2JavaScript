@@ -5,7 +5,7 @@
 
 var fs = require('fs');
 
-exports.generateClass = function(name, members) {
+exports.generateClass = function(name, members, inheritance) {
     var ejs = require('ejs');
     
     var template = fs.readFileSync('template/classTemplate.ejs', 'utf-8');
@@ -29,7 +29,8 @@ exports.generateClass = function(name, members) {
     });
     var output = ejs.render(template, {name: name, 
                                        attributes: attributes,
-                                       operations: operations
+                                       operations: operations,
+                                       inheritance: inheritance
                                       });
     return output;
 };
@@ -48,7 +49,7 @@ exports.convertWebIDL = function(idl) {
         //console.log(interface);
         switch(interface.type) {
         case 'interface':
-            output += exports.generateClass(interface.name, interface.members);
+            output += exports.generateClass(interface.name, interface.members, interface.inheritance);
 	    break;
         case 'partial interface':
         case 'exception':

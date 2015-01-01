@@ -2,7 +2,7 @@ interface Hello {
   attribute long value;
 };
 
-interface Hello2 {
+interface Hello2 : Hello {
   attribute float x;
   attribute float y;
   void foo();

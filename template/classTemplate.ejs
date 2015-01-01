@@ -2,6 +2,10 @@ function <%= name %>() {
     <% attributes.forEach(function(attr, i) { %>this.<%= attr %> = arguments[<%= i %>];
     <% }) %>
 }
+<% if(inheritance != null) { %>
+<%= name %>.prototype = Object.create(<%= inheritance %>.prototype);
+<%= name %>.prototype.constructor = <%= name %>;
+<% } %>
 <% operations.forEach(function(op, i) { %>
 <%= name%>.prototype.<%= op.name %> = function(<% op.args.forEach(function(name, j){ %><%= name%><% if (j !== op.args.length -1) { %>, <% } %><% })%>) {
     //TODO impl

@@ -46,5 +46,21 @@
             var output_x = output.replace(/[\n\r]/g, "").trim();
             expect(output_x).toEqual(exp_x);
         });
+
+        it ("conver interface string with inheritance", function() {
+            var str = "interface Hello2 : Hello { };";
+
+            var exp = "function Hello2() {\n"
+            exp += "\n";
+            exp += "    }\n";
+            exp += "Hello2.prototype = Object.create(Hello.prototype);\n";
+            exp += "Hello2.prototype.constructor = Hello2;\n";
+
+            var output = js.convertWebIDL(str);
+            var exp_x = exp.replace(/[\n\r]/g, "").trim();
+            var output_x = output.replace(/[\n\r]/g, "").trim();
+            expect(output_x).toEqual(exp_x);
+        });
+
     });
 })();

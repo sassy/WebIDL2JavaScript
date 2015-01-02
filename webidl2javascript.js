@@ -37,8 +37,9 @@ exports.generateClass = function(name, members, inheritance) {
 
 exports.convertWebIDL = function(idl) {
     var WebIDL2 = require("webidl2");
+    var tree = null;
     try {
-        var tree = WebIDL2.parse(idl);
+        tree = WebIDL2.parse(idl);
     } catch(e) {
         console.log(e);
         return;
